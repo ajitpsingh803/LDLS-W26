@@ -1,0 +1,22 @@
+independent_prompts: FAIL
+  seq 0 separate                :  Paris. The capital of France is Paris. The capital of France is Paris. The capital of France is Paris. The capital of France is Paris. The capital
+  seq 0 batched                 :  Paris. The Eiffel Tower is a famous landmark in Paris. The Eiffel Tower is a symbol of France and is one of the most visited attractions
+  seq 1 separate                :  Jupiter. Jupiter is a gas giant, meaning it is primarily composed of hydrogen and helium gases. It has a massive size, with a diameter of approximately 142
+  seq 1 batched                 :  Jupiter. Jupiter is a gas giant, meaning it is primarily composed of hydrogen and helium gases. It has a massive size and a strong magnetic field, which is
+isolation_same_shape: PASS
+  seq 0 batched                 :  Paris. The Eiffel Tower is a famous landmark in Paris. The Eiffel Tower is a symbol of France and is one of the most visited attractions
+  seq 0 batched_other_neighbour :  Paris. The Eiffel Tower is a famous landmark in Paris. The Eiffel Tower is a symbol of France and is one of the most visited attractions
+shared_prefix: PASS
+  seq 0 separate                : Paris.
+  seq 0 batched                 : Paris.
+  seq 1 separate                : Jupiter is the largest planet in our solar system.
+  seq 1 batched                 : Jupiter is the largest planet in our solar system.
+
+independent_prompts seq 0: tokens_equal=False max|dlogit| before divergence=0.516 first divergence at step 3, top-2 margins {'margin_in_separate': 0.1612, 'margin_in_batched': 0.2268}
+independent_prompts seq 1: tokens_equal=False max|dlogit| before divergence=0.703 first divergence at step 24, top-2 margins {'margin_in_separate': 0.0379, 'margin_in_batched': 0.0176}
+isolation_same_shape seq 0: tokens_equal=True max|dlogit| before divergence=0
+shared_prefix seq 0: tokens_equal=True max|dlogit| before divergence=0
+shared_prefix seq 1: tokens_equal=True max|dlogit| before divergence=0
+isolation_same_shape: max |dlogit| over all steps = 0.0
+shared prefix: 56 KV cells when batched vs 72 for separate runs
+Batched_strict_exit=1

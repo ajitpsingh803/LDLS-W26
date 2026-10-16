@@ -1,0 +1,19 @@
+{
+  "document": "data/markdown/03_lab_protocol.md",
+  "domain": "markdown",
+  "question": "How long does the heat shock last?",
+  "notes": "First phrasing tried: 'For how many seconds is the tube kept in the 42 °C water bath during the heat shock?'. Flat attention answered '45 seconds', structured attention (sequence of the Heat shock section) answered '42'; three other phrasings all gave '45 seconds' in structured mode. Kept as a known model-quality observation, not a mechanism failure.",
+  "target": {"title": "Heat shock"},
+  "expected": ["45"],
+  "modify_b": {
+    "title": "Troubleshooting",
+    "find": "| Very few colonies | Heat shock too long | Keep the shock at 45 seconds |",
+    "replace": "| Very few colonies | Heat shock too short | The heat shock must last 90 seconds |"
+  },
+  "control_a": {
+    "find": "for exactly **45 seconds**",
+    "replace": "for exactly **30 seconds**",
+    "expected": ["30"]
+  },
+  "evict_c": {"title": "Materials"}
+}

@@ -1,0 +1,18 @@
+{
+  "document": "data/markdown/05_city_guide.md",
+  "domain": "markdown",
+  "question": "How much does a ticket to the Maritime Museum cost?",
+  "target": {"title": "Museums"},
+  "expected": ["12"],
+  "modify_b": {
+    "title": "Practical information",
+    "find": "- Tap water is safe to drink.",
+    "replace": "- Tap water is safe to drink.\n- Since 2026 a ticket to the Maritime Museum costs 20 euros."
+  },
+  "control_a": {
+    "find": "| Maritime Museum | 10:00–17:00, closed Mondays | 12 euros |",
+    "replace": "| Maritime Museum | 10:00–17:00, closed Mondays | 15 euros |",
+    "expected": ["15"]
+  },
+  "evict_c": {"title": "Food and drink"}
+}

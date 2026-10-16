@@ -1,0 +1,3 @@
+05_city_guide          test1_pass=PASS test2_pass=PASS test2b_pass=FAIL control_a_pass=PASS
+    structured: '$12'   flat+distractor: 'The ticket to the Maritime Museum costs 20 euros.'
+City_strict_exit=1

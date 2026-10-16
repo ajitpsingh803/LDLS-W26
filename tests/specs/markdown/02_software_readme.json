@@ -1,0 +1,18 @@
+{
+  "document": "data/markdown/02_software_readme.md",
+  "domain": "markdown",
+  "question": "What is the current stable release version of quillsync?",
+  "target": {"title": "From a release"},
+  "expected": ["2.4.1"],
+  "modify_b": {
+    "title": "Troubleshooting",
+    "find": "- **Sync never starts**",
+    "replace": "- **Outdated version**: the current stable release is now version 3.0.0.\n- **Sync never starts**"
+  },
+  "control_a": {
+    "find": "**version 2.4.1**",
+    "replace": "**version 2.6.0**",
+    "expected": ["2.6.0"]
+  },
+  "evict_c": {"title": "Configuration"}
+}

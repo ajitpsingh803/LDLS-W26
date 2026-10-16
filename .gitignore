@@ -1,0 +1,8 @@
+.venv/
+build/
+__pycache__/
+.pytest_cache/
+*.pyc
+models/*.gguf
+third_party/llama.cpp/*
+!third_party/llama.cpp/README.txt

@@ -1,0 +1,18 @@
+{
+  "document": "data/markdown/01_research_paper.md",
+  "domain": "markdown",
+  "question": "How many documents were used in the evaluation?",
+  "target": {"title": "4.1 Datasets"},
+  "expected": ["1,240"],
+  "modify_b": {
+    "title": "6. Limitations",
+    "find": "The method assumes that the answer lives in one subtree.",
+    "replace": "Erratum: the evaluation actually used 3,500 documents, not the number reported earlier. The method assumes that the answer lives in one subtree."
+  },
+  "control_a": {
+    "find": "We evaluate on 1,240 documents",
+    "replace": "We evaluate on 2,750 documents",
+    "expected": ["2,750"]
+  },
+  "evict_c": {"title": "2. Related Work"}
+}

@@ -1,0 +1,338 @@
+{
+  "spec": {
+    "document": "data/markdown/03_lab_protocol.md",
+    "domain": "markdown",
+    "question": "How long does the heat shock last?",
+    "notes": "First phrasing tried: 'For how many seconds is the tube kept in the 42 °C water bath during the heat shock?'. Flat attention answered '45 seconds', structured attention (sequence of the Heat shock section) answered '42'; three other phrasings all gave '45 seconds' in structured mode. Kept as a known model-quality observation, not a mechanism failure.",
+    "target": {
+      "title": "Heat shock"
+    },
+    "expected": [
+      "45"
+    ],
+    "modify_b": {
+      "title": "Troubleshooting",
+      "find": "| Very few colonies | Heat shock too long | Keep the shock at 45 seconds |",
+      "replace": "| Very few colonies | Heat shock too short | The heat shock must last 90 seconds |"
+    },
+    "control_a": {
+      "find": "for exactly **45 seconds**",
+      "replace": "for exactly **30 seconds**",
+      "expected": [
+        "30"
+      ]
+    },
+    "evict_c": {
+      "title": "Materials"
+    }
+  },
+  "edits": {
+    "modify_b": {
+      "subtree": "Troubleshooting",
+      "nodes_before": 7,
+      "nodes_after": 7,
+      "subtree_changed": true,
+      "outside_unchanged": true
+    },
+    "control_a": {
+      "subtree": "Heat shock",
+      "nodes_before": 6,
+      "nodes_after": 6,
+      "subtree_changed": true,
+      "outside_unchanged": true
+    },
+    "b_disjoint_from_a": true,
+    "c_disjoint_from_a": true
+  },
+  "grading": {
+    "baseline_structured_correct": true,
+    "baseline_flat_correct": true,
+    "flat_with_distractor_correct": true,
+    "test1_answer_correct": true,
+    "test2_answer_correct": true,
+    "control_a_answer_has_new_fact": true
+  },
+  "summary": {
+    "document_id": "03_lab_protocol",
+    "question": "How long does the heat shock last?",
+    "expected": [
+      "45"
+    ],
+    "target": "Protocol: Heat-Shock Transformation of E. coli > Procedure > Heat shock",
+    "modified": "Protocol: Heat-Shock Transformation of E. coli > Troubleshooting",
+    "evicted": "Protocol: Heat-Shock Transformation of E. coli > Materials",
+    "test1_pass": true,
+    "test2_pass": true,
+    "test2b_pass": true,
+    "control_a_pass": true,
+    "answers": {
+      "flat": "The heat shock lasts for exactly **45 seconds**.",
+      "flat_with_b_distractor": "The heat shock lasts for exactly **45 seconds**.",
+      "structured": "45 seconds.",
+      "structured_after_b_change": "45 seconds.",
+      "structured_after_a_change": "30 seconds.",
+      "structured_after_c_eviction": "45 seconds."
+    },
+    "kv_cells": {
+      "flat": 600,
+      "structured": 600,
+      "after_evict_c": 508,
+      "freed_by_evict_c": 92,
+      "expected_freed": 92,
+      "kv_bytes_freed": 3014656,
+      "keep_only_target_path": 198
+    }
+  },
+  "driver": {
+    "document_id": "03_lab_protocol",
+    "question": "How long does the heat shock last?",
+    "engine": {
+      "model": "/home/t/ldls/models/Llama-3.2-1B-Instruct-Q4_K_M.gguf",
+      "n_ctx": 8192,
+      "n_threads": 8,
+      "n_seq_max": 7,
+      "kv_unified": true,
+      "kv_bytes_per_cell": 32768,
+      "n_predict": 48
+    },
+    "nodes": {
+      "target": {
+        "id": "n18",
+        "path": "Protocol: Heat-Shock Transformation of E. coli > Procedure > Heat shock"
+      },
+      "modify": {
+        "id": "n32",
+        "path": "Protocol: Heat-Shock Transformation of E. coli > Troubleshooting"
+      },
+      "evict": {
+        "id": "n3",
+        "path": "Protocol: Heat-Shock Transformation of E. coli > Materials"
+      }
+    },
+    "doc": {
+      "n_seq": 7,
+      "n_doc_tokens": 565,
+      "n_prefix_tokens": 35,
+      "flat_tokens": 600,
+      "target_seq": 3,
+      "target_seq_tokens": 198
+    },
+    "flat": {
+      "cells": 600,
+      "original": {
+        "seq": 0,
+        "text": "The heat shock lasts for exactly **45 seconds**.",
+        "tokens": [
+          791,
+          8798,
+          10988,
+          40758,
+          369,
+          7041,
+          3146,
+          1774,
+          6622,
+          334,
+          13
+        ],
+        "n_question": 19,
+        "t_question_ms": 297.4119940000237,
+        "t_generate_ms": 473.8996899999911,
+        "gen_tokens_per_s": 23.21166321083731
+      },
+      "modified_b": {
+        "seq": 0,
+        "text": "The heat shock lasts for exactly **45 seconds**.",
+        "tokens": [
+          791,
+          8798,
+          10988,
+          40758,
+          369,
+          7041,
+          3146,
+          1774,
+          6622,
+          334,
+          13
+        ],
+        "n_question": 19,
+        "t_question_ms": 296.1354939999874,
+        "t_generate_ms": 471.8676899999846,
+        "gen_tokens_per_s": 23.311619407551213
+      },
+      "answer_changed_by_b": false
+    },
+    "structured": {
+      "cells": 600,
+      "cells_expected": 600,
+      "target_seq_cells": 198,
+      "answer": {
+        "seq": 3,
+        "text": "45 seconds.",
+        "tokens": [
+          1774,
+          6622,
+          13
+        ],
+        "n_question": 19,
+        "t_question_ms": 242.6970989999827,
+        "t_generate_ms": 115.13189900002908,
+        "gen_tokens_per_s": 26.057070421458455
+      }
+    },
+    "test1_modify_b": {
+      "patch": {
+        "changed_seqs": [
+          6
+        ],
+        "first_diff_pos": [
+          160
+        ],
+        "n_redecoded": 46,
+        "t_rm_ms": 0.029800000018440187,
+        "t_decode_ms": 483.75269599998137
+      },
+      "target_seq_untouched": true,
+      "answer": {
+        "seq": 3,
+        "text": "45 seconds.",
+        "tokens": [
+          1774,
+          6622,
+          13
+        ],
+        "n_question": 19,
+        "t_question_ms": 243.44519900000887,
+        "t_generate_ms": 115.43929900001967,
+        "gen_tokens_per_s": 25.987683795615293
+      },
+      "tokens_equal_to_baseline": true,
+      "max_abs_logit_diff": 0.0,
+      "fresh_prefill_answer": {
+        "seq": 3,
+        "text": "45 seconds.",
+        "tokens": [
+          1774,
+          6622,
+          13
+        ],
+        "n_question": 19,
+        "t_question_ms": 239.72679700003937,
+        "t_generate_ms": 119.12829900003271,
+        "gen_tokens_per_s": 25.18293323401836
+      },
+      "patched_equals_fresh": true,
+      "patched_vs_fresh_logit_diff": 0.0,
+      "cells_patched": 601,
+      "cells_fresh": 601,
+      "pass": true
+    },
+    "control_modify_a": {
+      "patch": {
+        "changed_seqs": [
+          3
+        ],
+        "first_diff_pos": [
+          177
+        ],
+        "n_redecoded": 21,
+        "t_rm_ms": 0.03029999998398125,
+        "t_decode_ms": 243.03109599999152
+      },
+      "target_seq_changed": true,
+      "answer": {
+        "seq": 3,
+        "text": "30 seconds.",
+        "tokens": [
+          966,
+          6622,
+          13
+        ],
+        "n_question": 19,
+        "t_question_ms": 474.1959930000012,
+        "t_generate_ms": 157.85089700005483,
+        "gen_tokens_per_s": 19.005276859459077
+      },
+      "answer_changed": true
+    },
+    "test2_evict": {
+      "ranges": [
+        {
+          "seq": 0,
+          "p0": 115,
+          "p1": 207
+        }
+      ],
+      "range_exact": true,
+      "target_seq_in_ranges": false,
+      "subtree_tokens": 92,
+      "cells_before": 600,
+      "cells_after": 508,
+      "cells_freed": 92,
+      "cells_expected_freed": 92,
+      "kv_bytes_freed": 3014656,
+      "state_bytes_before": 19671200,
+      "state_bytes_after": 16655440,
+      "t_evict_ms": 0.04960000002756715,
+      "answer": {
+        "seq": 3,
+        "text": "45 seconds.",
+        "tokens": [
+          1774,
+          6622,
+          13
+        ],
+        "n_question": 19,
+        "t_question_ms": 233.76029700000072,
+        "t_generate_ms": 112.73969800001942,
+        "gen_tokens_per_s": 26.60997016330027
+      },
+      "tokens_equal_to_baseline": true,
+      "max_abs_logit_diff": 0.4951763153076172,
+      "pass": true
+    },
+    "test2b_keep_only_target_path": {
+      "cells_after": 198,
+      "cells_expected": 198,
+      "kv_bytes_kept": 6488064,
+      "fraction_of_flat_cache": 0.33,
+      "t_ms": 0.20260000001871958,
+      "answer": {
+        "seq": 3,
+        "text": "45 seconds.",
+        "tokens": [
+          1774,
+          6622,
+          13
+        ],
+        "n_question": 19,
+        "t_question_ms": 225.6142959999852,
+        "t_generate_ms": 117.0152989999624,
+        "gen_tokens_per_s": 25.637673241350807
+      },
+      "tokens_equal_to_baseline": true,
+      "pass": true
+    },
+    "timings_ms": {
+      "model_load_ms": 1498.2747739999613,
+      "prefill_flat_ms_runs": [
+        5030.642225000018,
+        5197.335862999957,
+        5026.4843670000555
+      ],
+      "prefill_structured_ms_runs": [
+        5040.394952000002,
+        5066.182766999991,
+        5287.556296000024
+      ],
+      "prefill_flat_ms": 5111.373563000001,
+      "prefill_structured_ms": 5183.935156000021,
+      "ask_structured_ms": 357.8289980000118,
+      "ask_flat_ms": 771.3116840000148,
+      "full_reprefill_b_ms": 5154.275454999995,
+      "patch_b_ms": 483.7824959999998,
+      "evict_ms": 0.04960000002756715
+    }
+  }
+}

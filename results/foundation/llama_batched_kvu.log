@@ -1,0 +1,20 @@
+0.01.173.707 I 
+main: n_predict = 32, n_ctx = 256, n_batch = 32, n_parallel = 2, n_kv_req = 58
+
+<|begin_of_text|>The capital of France is
+
+main: generating 2 sequences ...
+
+0.02.465.141 I main: stream 0 finished at n_cur = 32
+
+0.02.465.579 I main: stream 1 finished at n_cur = 32
+sequence 0:
+
+The capital of France is Paris. The capital of France is Paris. The capital of France is Paris. The capital of France is Paris. The capital of
+
+sequence 1:
+
+The capital of France is Paris. The capital of France is Paris. The capital of France is Paris. The capital of France is Paris. The capital of
+
+0.02.465.587 I main: decoded 52 tokens in 1.20 s, speed: 43.18 t/s
+

@@ -1,0 +1,323 @@
+{
+  "spec": {
+    "document": "data/markdown/01_research_paper.md",
+    "domain": "markdown",
+    "question": "How many documents were used in the evaluation?",
+    "target": {
+      "title": "4.1 Datasets"
+    },
+    "expected": [
+      "1,240"
+    ],
+    "modify_b": {
+      "title": "6. Limitations",
+      "find": "The method assumes that the answer lives in one subtree.",
+      "replace": "Erratum: the evaluation actually used 3,500 documents, not the number reported earlier. The method assumes that the answer lives in one subtree."
+    },
+    "control_a": {
+      "find": "We evaluate on 1,240 documents",
+      "replace": "We evaluate on 2,750 documents",
+      "expected": [
+        "2,750"
+      ]
+    },
+    "evict_c": {
+      "title": "2. Related Work"
+    }
+  },
+  "edits": {
+    "modify_b": {
+      "subtree": "6. Limitations",
+      "nodes_before": 2,
+      "nodes_after": 2,
+      "subtree_changed": true,
+      "outside_unchanged": true
+    },
+    "control_a": {
+      "subtree": "4.1 Datasets",
+      "nodes_before": 2,
+      "nodes_after": 2,
+      "subtree_changed": true,
+      "outside_unchanged": true
+    },
+    "b_disjoint_from_a": true,
+    "c_disjoint_from_a": true
+  },
+  "grading": {
+    "baseline_structured_correct": true,
+    "baseline_flat_correct": true,
+    "flat_with_distractor_correct": false,
+    "test1_answer_correct": true,
+    "test2_answer_correct": true,
+    "control_a_answer_has_new_fact": true
+  },
+  "summary": {
+    "document_id": "01_research_paper",
+    "question": "How many documents were used in the evaluation?",
+    "expected": [
+      "1,240"
+    ],
+    "target": "Tree-Masked Attention for Long Structured Documents > 4. Experimental Setup > 4.1 Datasets",
+    "modified": "Tree-Masked Attention for Long Structured Documents > 6. Limitations",
+    "evicted": "Tree-Masked Attention for Long Structured Documents > 2. Related Work",
+    "test1_pass": true,
+    "test2_pass": true,
+    "test2b_pass": true,
+    "control_a_pass": true,
+    "answers": {
+      "flat": "1,240",
+      "flat_with_b_distractor": "3,500 documents.",
+      "structured": "1,240",
+      "structured_after_b_change": "1,240",
+      "structured_after_a_change": "2,750",
+      "structured_after_c_eviction": "1,240"
+    },
+    "kv_cells": {
+      "flat": 825,
+      "structured": 825,
+      "after_evict_c": 730,
+      "freed_by_evict_c": 95,
+      "expected_freed": 95,
+      "kv_bytes_freed": 3112960,
+      "keep_only_target_path": 157
+    }
+  },
+  "driver": {
+    "document_id": "01_research_paper",
+    "question": "How many documents were used in the evaluation?",
+    "engine": {
+      "model": "/home/t/ldls/models/Llama-3.2-1B-Instruct-Q4_K_M.gguf",
+      "n_ctx": 8192,
+      "n_threads": 8,
+      "n_seq_max": 10,
+      "kv_unified": true,
+      "kv_bytes_per_cell": 32768,
+      "n_predict": 48
+    },
+    "nodes": {
+      "target": {
+        "id": "n20",
+        "path": "Tree-Masked Attention for Long Structured Documents > 4. Experimental Setup > 4.1 Datasets"
+      },
+      "modify": {
+        "id": "n34",
+        "path": "Tree-Masked Attention for Long Structured Documents > 6. Limitations"
+      },
+      "evict": {
+        "id": "n12",
+        "path": "Tree-Masked Attention for Long Structured Documents > 2. Related Work"
+      }
+    },
+    "doc": {
+      "n_seq": 10,
+      "n_doc_tokens": 790,
+      "n_prefix_tokens": 35,
+      "flat_tokens": 825,
+      "target_seq": 5,
+      "target_seq_tokens": 157
+    },
+    "flat": {
+      "cells": 825,
+      "original": {
+        "seq": 0,
+        "text": "1,240",
+        "tokens": [
+          16,
+          11,
+          8273
+        ],
+        "n_question": 20,
+        "t_question_ms": 326.3054380000103,
+        "t_generate_ms": 126.60061500000302,
+        "gen_tokens_per_s": 23.69656735079785
+      },
+      "modified_b": {
+        "seq": 0,
+        "text": "3,500 documents.",
+        "tokens": [
+          18,
+          11,
+          2636,
+          9477,
+          13
+        ],
+        "n_question": 20,
+        "t_question_ms": 316.49861799998325,
+        "t_generate_ms": 209.39651199997752,
+        "gen_tokens_per_s": 23.878143681784618
+      },
+      "answer_changed_by_b": true
+    },
+    "structured": {
+      "cells": 825,
+      "cells_expected": 825,
+      "target_seq_cells": 157,
+      "answer": {
+        "seq": 5,
+        "text": "1,240",
+        "tokens": [
+          16,
+          11,
+          8273
+        ],
+        "n_question": 20,
+        "t_question_ms": 241.28130099998089,
+        "t_generate_ms": 119.57509999998729,
+        "gen_tokens_per_s": 25.088835384627057
+      }
+    },
+    "test1_modify_b": {
+      "patch": {
+        "changed_seqs": [
+          9
+        ],
+        "first_diff_pos": [
+          97
+        ],
+        "n_redecoded": 61,
+        "t_rm_ms": 0.03599999999278225,
+        "t_decode_ms": 587.5504009999859
+      },
+      "target_seq_untouched": true,
+      "answer": {
+        "seq": 5,
+        "text": "1,240",
+        "tokens": [
+          16,
+          11,
+          8273
+        ],
+        "n_question": 20,
+        "t_question_ms": 235.659399999975,
+        "t_generate_ms": 116.60660100000678,
+        "gen_tokens_per_s": 25.7275314971219
+      },
+      "tokens_equal_to_baseline": true,
+      "max_abs_logit_diff": 0.0,
+      "fresh_prefill_answer": {
+        "seq": 5,
+        "text": "1,240",
+        "tokens": [
+          16,
+          11,
+          8273
+        ],
+        "n_question": 20,
+        "t_question_ms": 241.4318069999863,
+        "t_generate_ms": 119.02040300000226,
+        "gen_tokens_per_s": 25.205762410331808
+      },
+      "patched_equals_fresh": true,
+      "patched_vs_fresh_logit_diff": 0.541555643081665,
+      "cells_patched": 844,
+      "cells_fresh": 844,
+      "pass": true
+    },
+    "control_modify_a": {
+      "patch": {
+        "changed_seqs": [
+          5
+        ],
+        "first_diff_pos": [
+          109
+        ],
+        "n_redecoded": 48,
+        "t_rm_ms": 0.035700000007636845,
+        "t_decode_ms": 456.24160699997446
+      },
+      "target_seq_changed": true,
+      "answer": {
+        "seq": 5,
+        "text": "2,750",
+        "tokens": [
+          17,
+          11,
+          11711
+        ],
+        "n_question": 20,
+        "t_question_ms": 215.8279029999976,
+        "t_generate_ms": 114.4511019999918,
+        "gen_tokens_per_s": 26.212067403249772
+      },
+      "answer_changed": true
+    },
+    "test2_evict": {
+      "ranges": [
+        {
+          "seq": 2,
+          "p0": 90,
+          "p1": 185
+        }
+      ],
+      "range_exact": true,
+      "target_seq_in_ranges": false,
+      "subtree_tokens": 95,
+      "cells_before": 825,
+      "cells_after": 730,
+      "cells_freed": 95,
+      "cells_expected_freed": 95,
+      "kv_bytes_freed": 3112960,
+      "state_bytes_before": 27047232,
+      "state_bytes_after": 23933132,
+      "t_evict_ms": 0.055300000007264316,
+      "answer": {
+        "seq": 5,
+        "text": "1,240",
+        "tokens": [
+          16,
+          11,
+          8273
+        ],
+        "n_question": 20,
+        "t_question_ms": 236.38700300001074,
+        "t_generate_ms": 118.75110200000927,
+        "gen_tokens_per_s": 25.26292345480521
+      },
+      "tokens_equal_to_baseline": true,
+      "max_abs_logit_diff": 0.44744205474853516,
+      "pass": true
+    },
+    "test2b_keep_only_target_path": {
+      "cells_after": 157,
+      "cells_expected": 157,
+      "kv_bytes_kept": 5144576,
+      "fraction_of_flat_cache": 0.1903030303030303,
+      "t_ms": 0.3934000000008382,
+      "answer": {
+        "seq": 5,
+        "text": "1,240",
+        "tokens": [
+          16,
+          11,
+          8273
+        ],
+        "n_question": 20,
+        "t_question_ms": 240.21260200001416,
+        "t_generate_ms": 115.15430199998082,
+        "gen_tokens_per_s": 26.05200107939085
+      },
+      "tokens_equal_to_baseline": true,
+      "pass": true
+    },
+    "timings_ms": {
+      "model_load_ms": 1630.8215209999908,
+      "prefill_flat_ms_runs": [
+        6904.407095999995,
+        6927.070575000005,
+        7057.3575310000015
+      ],
+      "prefill_structured_ms_runs": [
+        6974.847955999998,
+        6895.931362999996,
+        7014.133012999999
+      ],
+      "prefill_flat_ms": 6981.193369999994,
+      "prefill_structured_ms": 7077.317572999978,
+      "ask_structured_ms": 360.8564009999682,
+      "ask_flat_ms": 452.90605300001334,
+      "full_reprefill_b_ms": 7303.84094200001,
+      "patch_b_ms": 587.5864009999787,
+      "evict_ms": 0.055300000007264316
+    }
+  }
+}

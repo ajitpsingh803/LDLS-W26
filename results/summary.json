@@ -1,0 +1,816 @@
+{
+  "domain": "markdown",
+  "documents": [
+    {
+      "document": "01_research_paper",
+      "stats": {
+        "doc_tokens": 790,
+        "nodes": 38,
+        "depth": 5,
+        "units": 15,
+        "sequences": 10,
+        "section_subtree_tokens": {
+          "n": 15,
+          "min": 35,
+          "median": 77,
+          "mean": 129.3,
+          "max": 790
+        },
+        "leaf_unit_tokens": {
+          "n": 10,
+          "min": 49,
+          "median": 63.5,
+          "mean": 71.6,
+          "max": 116
+        },
+        "markup_share": 0.060759493670886074,
+        "whitespace_share": 0.08481012658227848,
+        "markup_or_whitespace_share": 0.14556962025316456,
+        "visible_fraction_mean": 0.2004848484848485,
+        "merged_small_subtrees": 1,
+        "node_type_counts": {
+          "document": 1,
+          "heading": 15,
+          "list_item": 3,
+          "ordered_list": 1,
+          "paragraph": 13,
+          "table": 1,
+          "table_row": 4
+        }
+      },
+      "tests": {
+        "test1_change_b_ask_a": true,
+        "test1_logit_diff": 0.0,
+        "test1_changed_seqs": [
+          9
+        ],
+        "test1_redecoded_tokens": 61,
+        "test2_evict_c": true,
+        "test2_cells_before": 825,
+        "test2_cells_freed": 95,
+        "test2_kv_bytes_freed": 3112960,
+        "test2_logit_diff": 0.44744205474853516,
+        "keep_only_target_path": true,
+        "keep_path_cells": 157,
+        "control_a_changes_answer": true,
+        "flat_flipped_by_distractor": true
+      },
+      "answers": {
+        "flat": "1,240",
+        "flat_with_b_distractor": "3,500 documents.",
+        "structured": "1,240",
+        "structured_after_b_change": "1,240",
+        "structured_after_a_change": "2,750",
+        "structured_after_c_eviction": "1,240"
+      },
+      "question": "How many documents were used in the evaluation?",
+      "timings_ms": {
+        "model_load": 1630.8215209999908,
+        "prefill_flat": 6927.070575000005,
+        "prefill_structured": 6974.847955999998,
+        "question_flat": 326.3054380000103,
+        "question_structured": 241.28130099998089,
+        "gen_per_token_flat": 42.200205000001006,
+        "gen_per_token_structured": 39.85836666666243,
+        "patch_b": 587.5864009999787,
+        "full_reprefill_b": 7303.84094200001,
+        "evict_c": 0.055300000007264316
+      },
+      "engine": {
+        "model": "/home/t/ldls/models/Llama-3.2-1B-Instruct-Q4_K_M.gguf",
+        "n_ctx": 8192,
+        "n_threads": 8,
+        "n_seq_max": 10,
+        "kv_unified": true,
+        "kv_bytes_per_cell": 32768,
+        "n_predict": 48
+      }
+    },
+    {
+      "document": "02_software_readme",
+      "stats": {
+        "doc_tokens": 547,
+        "nodes": 36,
+        "depth": 4,
+        "units": 10,
+        "sequences": 6,
+        "section_subtree_tokens": {
+          "n": 12,
+          "min": 24,
+          "median": 62.5,
+          "mean": 106.2,
+          "max": 547
+        },
+        "leaf_unit_tokens": {
+          "n": 6,
+          "min": 40,
+          "median": 84.0,
+          "mean": 83.3,
+          "max": 129
+        },
+        "markup_share": 0.1663619744058501,
+        "whitespace_share": 0.07678244972577697,
+        "markup_or_whitespace_share": 0.24314442413162707,
+        "visible_fraction_mean": 0.2763459335624284,
+        "merged_small_subtrees": 5,
+        "node_type_counts": {
+          "bullet_list": 1,
+          "code_block": 3,
+          "document": 1,
+          "heading": 12,
+          "list_item": 3,
+          "paragraph": 10,
+          "table": 1,
+          "table_row": 5
+        }
+      },
+      "tests": {
+        "test1_change_b_ask_a": true,
+        "test1_logit_diff": 0.0,
+        "test1_changed_seqs": [
+          4
+        ],
+        "test1_redecoded_tokens": 72,
+        "test2_evict_c": true,
+        "test2_cells_before": 582,
+        "test2_cells_freed": 129,
+        "test2_kv_bytes_freed": 4227072,
+        "test2_logit_diff": 0.4884979724884033,
+        "keep_only_target_path": true,
+        "keep_path_cells": 178,
+        "control_a_changes_answer": true,
+        "flat_flipped_by_distractor": false
+      },
+      "answers": {
+        "flat": "The current stable release version of quillsync is 2.4.1, published on 3 March 2026.",
+        "flat_with_b_distractor": "The current stable release is version 2.4.1, published on 3 March 2026.",
+        "structured": "The current stable release version of quillsync is 2.4.1.",
+        "structured_after_b_change": "The current stable release version of quillsync is 2.4.1.",
+        "structured_after_a_change": "The current stable release version of quillsync is 2.6.0.",
+        "structured_after_c_eviction": "The current stable release version of quillsync is 2.4.1."
+      },
+      "question": "What is the current stable release version of quillsync?",
+      "timings_ms": {
+        "model_load": 1550.7573050000065,
+        "prefill_flat": 4919.088113999984,
+        "prefill_structured": 4952.336555999995,
+        "question_flat": 342.77228400000604,
+        "question_structured": 283.45819999999367,
+        "gen_per_token_flat": 41.171790384614724,
+        "gen_per_token_structured": 38.55810576470514,
+        "patch_b": 742.9843990000372,
+        "full_reprefill_b": 4999.351505999977,
+        "evict_c": 0.05840000000898726
+      },
+      "engine": {
+        "model": "/home/t/ldls/models/Llama-3.2-1B-Instruct-Q4_K_M.gguf",
+        "n_ctx": 8192,
+        "n_threads": 8,
+        "n_seq_max": 6,
+        "kv_unified": true,
+        "kv_bytes_per_cell": 32768,
+        "n_predict": 48
+      }
+    },
+    {
+      "document": "03_lab_protocol",
+      "stats": {
+        "doc_tokens": 565,
+        "nodes": 41,
+        "depth": 5,
+        "units": 10,
+        "sequences": 7,
+        "section_subtree_tokens": {
+          "n": 10,
+          "min": 35,
+          "median": 78.5,
+          "mean": 128.3,
+          "max": 565
+        },
+        "leaf_unit_tokens": {
+          "n": 7,
+          "min": 40,
+          "median": 77,
+          "mean": 68.9,
+          "max": 92
+        },
+        "markup_share": 0.1256637168141593,
+        "whitespace_share": 0.08141592920353982,
+        "markup_or_whitespace_share": 0.20707964601769913,
+        "visible_fraction_mean": 0.30857142857142855,
+        "merged_small_subtrees": 1,
+        "node_type_counts": {
+          "bullet_list": 1,
+          "document": 1,
+          "heading": 10,
+          "list_item": 16,
+          "ordered_list": 3,
+          "paragraph": 4,
+          "table": 1,
+          "table_row": 5
+        }
+      },
+      "tests": {
+        "test1_change_b_ask_a": true,
+        "test1_logit_diff": 0.0,
+        "test1_changed_seqs": [
+          6
+        ],
+        "test1_redecoded_tokens": 46,
+        "test2_evict_c": true,
+        "test2_cells_before": 600,
+        "test2_cells_freed": 92,
+        "test2_kv_bytes_freed": 3014656,
+        "test2_logit_diff": 0.4951763153076172,
+        "keep_only_target_path": true,
+        "keep_path_cells": 198,
+        "control_a_changes_answer": true,
+        "flat_flipped_by_distractor": false
+      },
+      "answers": {
+        "flat": "The heat shock lasts for exactly **45 seconds**.",
+        "flat_with_b_distractor": "The heat shock lasts for exactly **45 seconds**.",
+        "structured": "45 seconds.",
+        "structured_after_b_change": "45 seconds.",
+        "structured_after_a_change": "30 seconds.",
+        "structured_after_c_eviction": "45 seconds."
+      },
+      "question": "How long does the heat shock last?",
+      "timings_ms": {
+        "model_load": 1498.2747739999613,
+        "prefill_flat": 5030.642225000018,
+        "prefill_structured": 5066.182766999991,
+        "question_flat": 297.4119940000237,
+        "question_structured": 242.6970989999827,
+        "gen_per_token_flat": 43.08178999999919,
+        "gen_per_token_structured": 38.37729966667636,
+        "patch_b": 483.7824959999998,
+        "full_reprefill_b": 5154.275454999995,
+        "evict_c": 0.04960000002756715
+      },
+      "engine": {
+        "model": "/home/t/ldls/models/Llama-3.2-1B-Instruct-Q4_K_M.gguf",
+        "n_ctx": 8192,
+        "n_threads": 8,
+        "n_seq_max": 7,
+        "kv_unified": true,
+        "kv_bytes_per_cell": 32768,
+        "n_predict": 48
+      }
+    },
+    {
+      "document": "04_meeting_notes",
+      "stats": {
+        "doc_tokens": 504,
+        "nodes": 43,
+        "depth": 5,
+        "units": 9,
+        "sequences": 6,
+        "section_subtree_tokens": {
+          "n": 11,
+          "min": 26,
+          "median": 48,
+          "mean": 111.1,
+          "max": 504
+        },
+        "leaf_unit_tokens": {
+          "n": 6,
+          "min": 40,
+          "median": 53.5,
+          "mean": 61.8,
+          "max": 107
+        },
+        "markup_share": 0.09523809523809523,
+        "whitespace_share": 0.0992063492063492,
+        "markup_or_whitespace_share": 0.19444444444444445,
+        "visible_fraction_mean": 0.3874458874458875,
+        "merged_small_subtrees": 3,
+        "node_type_counts": {
+          "bullet_list": 4,
+          "document": 1,
+          "heading": 11,
+          "list_item": 19,
+          "ordered_list": 1,
+          "paragraph": 7
+        }
+      },
+      "tests": {
+        "test1_change_b_ask_a": true,
+        "test1_logit_diff": 0.0,
+        "test1_changed_seqs": [
+          4
+        ],
+        "test1_redecoded_tokens": 24,
+        "test2_evict_c": true,
+        "test2_cells_before": 539,
+        "test2_cells_freed": 48,
+        "test2_kv_bytes_freed": 1572864,
+        "test2_logit_diff": 0.581802487373352,
+        "keep_only_target_path": true,
+        "keep_path_cells": 275,
+        "control_a_changes_answer": true,
+        "flat_flipped_by_distractor": false
+      },
+      "answers": {
+        "flat": "Saturday 14 November, 02:00 to 04:00 UTC.",
+        "flat_with_b_distractor": "Saturday 14 November, 02:00 to 04:00 UTC.",
+        "structured": "Saturday 14 November, 02:00 to 04:00 UTC.",
+        "structured_after_b_change": "Saturday 14 November, 02:00 to 04:00 UTC.",
+        "structured_after_a_change": "Saturday 21 November, 02:00 to 04:00 UTC.",
+        "structured_after_c_eviction": "Saturday 14 November, 02:00 to 04:00 UTC."
+      },
+      "question": "On which date is the cut-over window for the database migration?",
+      "timings_ms": {
+        "model_load": 1642.1295490000048,
+        "prefill_flat": 4692.461408000032,
+        "prefill_structured": 4608.829297000018,
+        "question_flat": 333.09301199996844,
+        "question_structured": 299.8709099999978,
+        "gen_per_token_flat": 41.19873906249995,
+        "gen_per_token_structured": 38.583694937500695,
+        "patch_b": 268.1602080000448,
+        "full_reprefill_b": 4612.741547999962,
+        "evict_c": 0.030499999993480742
+      },
+      "engine": {
+        "model": "/home/t/ldls/models/Llama-3.2-1B-Instruct-Q4_K_M.gguf",
+        "n_ctx": 8192,
+        "n_threads": 8,
+        "n_seq_max": 6,
+        "kv_unified": true,
+        "kv_bytes_per_cell": 32768,
+        "n_predict": 48
+      }
+    },
+    {
+      "document": "05_city_guide",
+      "stats": {
+        "doc_tokens": 464,
+        "nodes": 31,
+        "depth": 4,
+        "units": 10,
+        "sequences": 6,
+        "section_subtree_tokens": {
+          "n": 12,
+          "min": 21,
+          "median": 48.0,
+          "mean": 87.2,
+          "max": 464
+        },
+        "leaf_unit_tokens": {
+          "n": 6,
+          "min": 46,
+          "median": 52.0,
+          "mean": 57.7,
+          "max": 78
+        },
+        "markup_share": 0.09482758620689655,
+        "whitespace_share": 0.0668103448275862,
+        "markup_or_whitespace_share": 0.16163793103448276,
+        "visible_fraction_mean": 0.313627254509018,
+        "merged_small_subtrees": 4,
+        "node_type_counts": {
+          "bullet_list": 1,
+          "document": 1,
+          "heading": 12,
+          "list_item": 4,
+          "paragraph": 8,
+          "table": 1,
+          "table_row": 4
+        }
+      },
+      "tests": {
+        "test1_change_b_ask_a": true,
+        "test1_logit_diff": 0.0,
+        "test1_changed_seqs": [
+          4
+        ],
+        "test1_redecoded_tokens": 17,
+        "test2_evict_c": true,
+        "test2_cells_before": 499,
+        "test2_cells_freed": 55,
+        "test2_kv_bytes_freed": 1802240,
+        "test2_logit_diff": 0.6908893585205078,
+        "keep_only_target_path": false,
+        "keep_path_cells": 166,
+        "control_a_changes_answer": true,
+        "flat_flipped_by_distractor": true
+      },
+      "answers": {
+        "flat": "$12.",
+        "flat_with_b_distractor": "The ticket to the Maritime Museum costs 20 euros.",
+        "structured": "$12",
+        "structured_after_b_change": "$12",
+        "structured_after_a_change": "$15.",
+        "structured_after_c_eviction": "$12"
+      },
+      "question": "How much does a ticket to the Maritime Museum cost?",
+      "timings_ms": {
+        "model_load": 1647.378601000004,
+        "prefill_flat": 4086.720454000053,
+        "prefill_structured": 4134.364287000033,
+        "question_flat": 300.55139999999665,
+        "question_structured": 249.25539999996545,
+        "gen_per_token_flat": 41.57413299998734,
+        "gen_per_token_structured": 37.4795499999891,
+        "patch_b": 185.1309000000474,
+        "full_reprefill_b": 4040.92450199998,
+        "evict_c": 0.03359999996609986
+      },
+      "engine": {
+        "model": "/home/t/ldls/models/Llama-3.2-1B-Instruct-Q4_K_M.gguf",
+        "n_ctx": 8192,
+        "n_threads": 8,
+        "n_seq_max": 6,
+        "kv_unified": true,
+        "kv_bytes_per_cell": 32768,
+        "n_predict": 48
+      }
+    }
+  ],
+  "batched_vs_separate": {
+    "engine": {
+      "n_threads": 8,
+      "kv_unified": true,
+      "n_predict": 32
+    },
+    "independent_prompts": {
+      "sequences": [
+        {
+          "seq": 0,
+          "separate": {
+            "seq": 0,
+            "text": " Paris. The capital of France is Paris. The capital of France is Paris. The capital of France is Paris. The capital of France is Paris. The capital",
+            "tokens": [
+              12366,
+              13,
+              578,
+              6864,
+              315,
+              9822,
+              374,
+              12366,
+              13,
+              578,
+              6864,
+              315,
+              9822,
+              374,
+              12366,
+              13,
+              578,
+              6864,
+              315,
+              9822,
+              374,
+              12366,
+              13,
+              578,
+              6864,
+              315,
+              9822,
+              374,
+              12366,
+              13,
+              578,
+              6864
+            ],
+            "n_question": 6,
+            "t_question_ms": 103.26020099999732,
+            "t_generate_ms": 1534.9323140000051,
+            "gen_tokens_per_s": 20.847824824671644
+          },
+          "batched": {
+            "seq": 0,
+            "text": " Paris. The Eiffel Tower is a famous landmark in Paris. The Eiffel Tower is a symbol of France and is one of the most visited attractions",
+            "tokens": [
+              12366,
+              13,
+              578,
+              469,
+              3168,
+              301,
+              22703,
+              374,
+              264,
+              11495,
+              38350,
+              304,
+              12366,
+              13,
+              578,
+              469,
+              3168,
+              301,
+              22703,
+              374,
+              264,
+              7891,
+              315,
+              9822,
+              323,
+              374,
+              832,
+              315,
+              279,
+              1455,
+              12263,
+              39591
+            ],
+            "n_question": 6,
+            "t_question_ms": 202.12610100000165,
+            "t_generate_ms": 1513.9641140000022,
+            "gen_tokens_per_s": 21.136564403401675
+          },
+          "tokens_equal": false,
+          "max_abs_logit_diff_before_divergence": 0.5157971382141113,
+          "first_divergence_step": 3,
+          "margin_in_separate": 0.16119766235351562,
+          "margin_in_batched": 0.2267742156982422,
+          "prompt": "The capital of France is"
+        },
+        {
+          "seq": 1,
+          "separate": {
+            "seq": 0,
+            "text": " Jupiter. Jupiter is a gas giant, meaning it is primarily composed of hydrogen and helium gases. It has a massive size, with a diameter of approximately 142",
+            "tokens": [
+              50789,
+              13,
+              50789,
+              374,
+              264,
+              6962,
+              14880,
+              11,
+              7438,
+              433,
+              374,
+              15871,
+              24306,
+              315,
+              35784,
+              323,
+              97607,
+              45612,
+              13,
+              1102,
+              706,
+              264,
+              11191,
+              1404,
+              11,
+              449,
+              264,
+              23899,
+              315,
+              13489,
+              220,
+              10239
+            ],
+            "n_question": 9,
+            "t_question_ms": 152.70940100000007,
+            "t_generate_ms": 1209.2241110000032,
+            "gen_tokens_per_s": 26.463250036865926
+          },
+          "batched": {
+            "seq": 1,
+            "text": " Jupiter. Jupiter is a gas giant, meaning it is primarily composed of hydrogen and helium gases. It has a massive size and a strong magnetic field, which is",
+            "tokens": [
+              50789,
+              13,
+              50789,
+              374,
+              264,
+              6962,
+              14880,
+              11,
+              7438,
+              433,
+              374,
+              15871,
+              24306,
+              315,
+              35784,
+              323,
+              97607,
+              45612,
+              13,
+              1102,
+              706,
+              264,
+              11191,
+              1404,
+              323,
+              264,
+              3831,
+              24924,
+              2115,
+              11,
+              902,
+              374
+            ],
+            "n_question": 9,
+            "t_question_ms": 202.12610100000165,
+            "t_generate_ms": 1513.9641140000022,
+            "gen_tokens_per_s": 21.136564403401675
+          },
+          "tokens_equal": false,
+          "max_abs_logit_diff_before_divergence": 0.7031922340393066,
+          "first_divergence_step": 24,
+          "margin_in_separate": 0.03793907165527344,
+          "margin_in_batched": 0.017574310302734375,
+          "prompt": "The largest planet in the solar system is"
+        }
+      ],
+      "pass": false
+    },
+    "isolation_same_shape": {
+      "sequences": [
+        {
+          "seq": 0,
+          "batched": {
+            "seq": 0,
+            "text": " Paris. The Eiffel Tower is a famous landmark in Paris. The Eiffel Tower is a symbol of France and is one of the most visited attractions",
+            "tokens": [
+              12366,
+              13,
+              578,
+              469,
+              3168,
+              301,
+              22703,
+              374,
+              264,
+              11495,
+              38350,
+              304,
+              12366,
+              13,
+              578,
+              469,
+              3168,
+              301,
+              22703,
+              374,
+              264,
+              7891,
+              315,
+              9822,
+              323,
+              374,
+              832,
+              315,
+              279,
+              1455,
+              12263,
+              39591
+            ],
+            "n_question": 6,
+            "t_question_ms": 202.12610100000165,
+            "t_generate_ms": 1513.9641140000022,
+            "gen_tokens_per_s": 21.136564403401675
+          },
+          "batched_other_neighbour": {
+            "seq": 0,
+            "text": " Paris. The Eiffel Tower is a famous landmark in Paris. The Eiffel Tower is a symbol of France and is one of the most visited attractions",
+            "tokens": [
+              12366,
+              13,
+              578,
+              469,
+              3168,
+              301,
+              22703,
+              374,
+              264,
+              11495,
+              38350,
+              304,
+              12366,
+              13,
+              578,
+              469,
+              3168,
+              301,
+              22703,
+              374,
+              264,
+              7891,
+              315,
+              9822,
+              323,
+              374,
+              832,
+              315,
+              279,
+              1455,
+              12263,
+              39591
+            ],
+            "n_question": 6,
+            "t_question_ms": 189.6885009999969,
+            "t_generate_ms": 1562.6372149999952,
+            "gen_tokens_per_s": 20.47820165347854
+          },
+          "tokens_equal": true,
+          "max_abs_logit_diff_before_divergence": 0.0
+        }
+      ],
+      "pass": true,
+      "replaced_prompt": "The largest planet in the solar system is",
+      "replacement": "The tallest mountain on the planet Earth is",
+      "neighbour_outputs": [
+        " Jupiter. Jupiter is a gas giant, meaning it is primarily composed of hydrogen and helium gases. It has a massive size and a strong magnetic field, which is",
+        " Mount Everest, located in the Himalayas. It stands at an impressive 8,848 meters (29,029 feet) above sea level. The mountain is"
+      ],
+      "max_abs_logit_diff_all_steps": 0.0
+    },
+    "shared_prefix": {
+      "sequences": [
+        {
+          "seq": 0,
+          "separate": {
+            "seq": 0,
+            "text": "Paris.",
+            "tokens": [
+              60704,
+              13
+            ],
+            "n_question": 28,
+            "t_question_ms": 310.26550199999474,
+            "t_generate_ms": 81.41849099998944,
+            "gen_tokens_per_s": 24.56444445771243
+          },
+          "batched": {
+            "seq": 0,
+            "text": "Paris.",
+            "tokens": [
+              60704,
+              13
+            ],
+            "n_question": 12,
+            "t_question_ms": 296.6381660000043,
+            "t_generate_ms": 450.60814900000696,
+            "gen_tokens_per_s": 4.438446140928466
+          },
+          "tokens_equal": true,
+          "max_abs_logit_diff_before_divergence": 0.0,
+          "suffix": "What is the capital of France?<|eot_id|><|start_header_id|>assistant<|end_header_id|>\n\n"
+        },
+        {
+          "seq": 1,
+          "separate": {
+            "seq": 0,
+            "text": "Jupiter is the largest planet in our solar system.",
+            "tokens": [
+              41,
+              20089,
+              374,
+              279,
+              7928,
+              11841,
+              304,
+              1057,
+              13238,
+              1887,
+              13
+            ],
+            "n_question": 31,
+            "t_question_ms": 329.50566300000355,
+            "t_generate_ms": 394.898755000002,
+            "gen_tokens_per_s": 27.85524102247409
+          },
+          "batched": {
+            "seq": 1,
+            "text": "Jupiter is the largest planet in our solar system.",
+            "tokens": [
+              41,
+              20089,
+              374,
+              279,
+              7928,
+              11841,
+              304,
+              1057,
+              13238,
+              1887,
+              13
+            ],
+            "n_question": 15,
+            "t_question_ms": 296.6381660000043,
+            "t_generate_ms": 450.60814900000696,
+            "gen_tokens_per_s": 24.411453775106562
+          },
+          "tokens_equal": true,
+          "max_abs_logit_diff_before_divergence": 0.0,
+          "suffix": "What is the largest planet in the solar system?<|eot_id|><|start_header_id|>assistant<|end_header_id|>\n\n"
+        }
+      ],
+      "pass": true,
+      "prefix_tokens": 16,
+      "cells_separate": 72,
+      "cells_batched": 56
+    }
+  }
+}

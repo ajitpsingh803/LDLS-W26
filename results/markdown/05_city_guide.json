@@ -1,0 +1,325 @@
+{
+  "spec": {
+    "document": "data/markdown/05_city_guide.md",
+    "domain": "markdown",
+    "question": "How much does a ticket to the Maritime Museum cost?",
+    "target": {
+      "title": "Museums"
+    },
+    "expected": [
+      "12"
+    ],
+    "modify_b": {
+      "title": "Practical information",
+      "find": "- Tap water is safe to drink.",
+      "replace": "- Tap water is safe to drink.\n- Since 2026 a ticket to the Maritime Museum costs 20 euros."
+    },
+    "control_a": {
+      "find": "| Maritime Museum | 10:00–17:00, closed Mondays | 12 euros |",
+      "replace": "| Maritime Museum | 10:00–17:00, closed Mondays | 15 euros |",
+      "expected": [
+        "15"
+      ]
+    },
+    "evict_c": {
+      "title": "Food and drink"
+    }
+  },
+  "edits": {
+    "modify_b": {
+      "subtree": "Practical information",
+      "nodes_before": 6,
+      "nodes_after": 7,
+      "subtree_changed": true,
+      "outside_unchanged": true
+    },
+    "control_a": {
+      "subtree": "Museums",
+      "nodes_before": 6,
+      "nodes_after": 6,
+      "subtree_changed": true,
+      "outside_unchanged": true
+    },
+    "b_disjoint_from_a": true,
+    "c_disjoint_from_a": true
+  },
+  "grading": {
+    "baseline_structured_correct": true,
+    "baseline_flat_correct": true,
+    "flat_with_distractor_correct": false,
+    "test1_answer_correct": true,
+    "test2_answer_correct": true,
+    "control_a_answer_has_new_fact": true
+  },
+  "summary": {
+    "document_id": "05_city_guide",
+    "question": "How much does a ticket to the Maritime Museum cost?",
+    "expected": [
+      "12"
+    ],
+    "target": "Visitor Guide to Port Aldern > Museums",
+    "modified": "Visitor Guide to Port Aldern > Practical information",
+    "evicted": "Visitor Guide to Port Aldern > Food and drink",
+    "test1_pass": true,
+    "test2_pass": true,
+    "test2b_pass": false,
+    "control_a_pass": true,
+    "answers": {
+      "flat": "$12.",
+      "flat_with_b_distractor": "The ticket to the Maritime Museum costs 20 euros.",
+      "structured": "$12",
+      "structured_after_b_change": "$12",
+      "structured_after_a_change": "$15.",
+      "structured_after_c_eviction": "$12"
+    },
+    "kv_cells": {
+      "flat": 499,
+      "structured": 499,
+      "after_evict_c": 444,
+      "freed_by_evict_c": 55,
+      "expected_freed": 55,
+      "kv_bytes_freed": 1802240,
+      "keep_only_target_path": 166
+    }
+  },
+  "driver": {
+    "document_id": "05_city_guide",
+    "question": "How much does a ticket to the Maritime Museum cost?",
+    "engine": {
+      "model": "/home/t/ldls/models/Llama-3.2-1B-Instruct-Q4_K_M.gguf",
+      "n_ctx": 8192,
+      "n_threads": 8,
+      "n_seq_max": 6,
+      "kv_unified": true,
+      "kv_bytes_per_cell": 32768,
+      "n_predict": 48
+    },
+    "nodes": {
+      "target": {
+        "id": "n17",
+        "path": "Visitor Guide to Port Aldern > Museums"
+      },
+      "modify": {
+        "id": "n23",
+        "path": "Visitor Guide to Port Aldern > Practical information"
+      },
+      "evict": {
+        "id": "n15",
+        "path": "Visitor Guide to Port Aldern > Food and drink"
+      }
+    },
+    "doc": {
+      "n_seq": 6,
+      "n_doc_tokens": 464,
+      "n_prefix_tokens": 35,
+      "flat_tokens": 499,
+      "target_seq": 3,
+      "target_seq_tokens": 166
+    },
+    "flat": {
+      "cells": 499,
+      "original": {
+        "seq": 0,
+        "text": "$12.",
+        "tokens": [
+          3,
+          717,
+          13
+        ],
+        "n_question": 22,
+        "t_question_ms": 300.55139999999665,
+        "t_generate_ms": 124.72239899996202,
+        "gen_tokens_per_s": 24.05341802318053
+      },
+      "modified_b": {
+        "seq": 0,
+        "text": "The ticket to the Maritime Museum costs 20 euros.",
+        "tokens": [
+          791,
+          11989,
+          311,
+          279,
+          77331,
+          16730,
+          7194,
+          220,
+          508,
+          33588,
+          13
+        ],
+        "n_question": 22,
+        "t_question_ms": 316.1463990000193,
+        "t_generate_ms": 440.83419899997534,
+        "gen_tokens_per_s": 24.952692021066667
+      },
+      "answer_changed_by_b": true
+    },
+    "structured": {
+      "cells": 499,
+      "cells_expected": 499,
+      "target_seq_cells": 166,
+      "answer": {
+        "seq": 3,
+        "text": "$12",
+        "tokens": [
+          3,
+          717
+        ],
+        "n_question": 22,
+        "t_question_ms": 249.25539999996545,
+        "t_generate_ms": 74.9590999999782,
+        "gen_tokens_per_s": 26.68121682358221
+      }
+    },
+    "test1_modify_b": {
+      "patch": {
+        "changed_seqs": [
+          4
+        ],
+        "first_diff_pos": [
+          136
+        ],
+        "n_redecoded": 17,
+        "t_rm_ms": 0.011700000031851232,
+        "t_decode_ms": 185.11920000001555
+      },
+      "target_seq_untouched": true,
+      "answer": {
+        "seq": 3,
+        "text": "$12",
+        "tokens": [
+          3,
+          717
+        ],
+        "n_question": 22,
+        "t_question_ms": 248.8531999999541,
+        "t_generate_ms": 73.5692000000272,
+        "gen_tokens_per_s": 27.185289496137795
+      },
+      "tokens_equal_to_baseline": true,
+      "max_abs_logit_diff": 0.0,
+      "fresh_prefill_answer": {
+        "seq": 3,
+        "text": "$12",
+        "tokens": [
+          3,
+          717
+        ],
+        "n_question": 22,
+        "t_question_ms": 250.42420399998082,
+        "t_generate_ms": 75.6948010000051,
+        "gen_tokens_per_s": 26.421893889381717
+      },
+      "patched_equals_fresh": true,
+      "patched_vs_fresh_logit_diff": 0.49145936965942383,
+      "cells_patched": 515,
+      "cells_fresh": 515,
+      "pass": true
+    },
+    "control_modify_a": {
+      "patch": {
+        "changed_seqs": [
+          3
+        ],
+        "first_diff_pos": [
+          124
+        ],
+        "n_redecoded": 42,
+        "t_rm_ms": 0.03200000000651926,
+        "t_decode_ms": 407.9518059999682
+      },
+      "target_seq_changed": true,
+      "answer": {
+        "seq": 3,
+        "text": "$15.",
+        "tokens": [
+          3,
+          868,
+          13
+        ],
+        "n_question": 22,
+        "t_question_ms": 242.99410299997544,
+        "t_generate_ms": 113.75840200000675,
+        "gen_tokens_per_s": 26.37167846292199
+      },
+      "answer_changed": true
+    },
+    "test2_evict": {
+      "ranges": [
+        {
+          "seq": 2,
+          "p0": 88,
+          "p1": 143
+        }
+      ],
+      "range_exact": true,
+      "target_seq_in_ranges": false,
+      "subtree_tokens": 55,
+      "cells_before": 499,
+      "cells_after": 444,
+      "cells_freed": 55,
+      "cells_expected_freed": 55,
+      "kv_bytes_freed": 1802240,
+      "state_bytes_before": 16359396,
+      "state_bytes_after": 14556496,
+      "t_evict_ms": 0.03359999996609986,
+      "answer": {
+        "seq": 3,
+        "text": "$12",
+        "tokens": [
+          3,
+          717
+        ],
+        "n_question": 22,
+        "t_question_ms": 254.26510000001872,
+        "t_generate_ms": 78.04130000004079,
+        "gen_tokens_per_s": 25.627456231494794
+      },
+      "tokens_equal_to_baseline": true,
+      "max_abs_logit_diff": 0.6908893585205078,
+      "pass": true
+    },
+    "test2b_keep_only_target_path": {
+      "cells_after": 166,
+      "cells_expected": 166,
+      "kv_bytes_kept": 5439488,
+      "fraction_of_flat_cache": 0.33266533066132264,
+      "t_ms": 0.19030000001657754,
+      "answer": {
+        "seq": 3,
+        "text": "$12.",
+        "tokens": [
+          3,
+          717,
+          13
+        ],
+        "n_question": 22,
+        "t_question_ms": 257.53529999998864,
+        "t_generate_ms": 109.8863999999594,
+        "gen_tokens_per_s": 27.300921679125974
+      },
+      "tokens_equal_to_baseline": false,
+      "pass": false
+    },
+    "timings_ms": {
+      "model_load_ms": 1647.378601000004,
+      "prefill_flat_ms_runs": [
+        4662.1835490000085,
+        4068.662845999992,
+        4086.720454000053
+      ],
+      "prefill_structured_ms_runs": [
+        4230.194732999953,
+        4134.364287000033,
+        4095.7935709999874
+      ],
+      "prefill_flat_ms": 4504.120610000042,
+      "prefill_structured_ms": 4022.746097999974,
+      "ask_structured_ms": 324.21449999994365,
+      "ask_flat_ms": 425.2737989999587,
+      "full_reprefill_b_ms": 4040.92450199998,
+      "patch_b_ms": 185.1309000000474,
+      "evict_ms": 0.03359999996609986
+    }
+  }
+}

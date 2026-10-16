@@ -1,0 +1,428 @@
+{
+  "spec": {
+    "document": "data/markdown/04_meeting_notes.md",
+    "domain": "markdown",
+    "question": "On which date is the cut-over window for the database migration?",
+    "target": {
+      "title": "Database migration"
+    },
+    "expected": [
+      "14 November",
+      "November 14"
+    ],
+    "modify_b": {
+      "title": "Decisions",
+      "find": "- Approve the PostgreSQL 16 migration with the November cut-over window.",
+      "replace": "- Approve the PostgreSQL 16 migration, but move the cut-over window to Sunday 6 December."
+    },
+    "control_a": {
+      "find": "Saturday 14 November",
+      "replace": "Saturday 21 November",
+      "expected": [
+        "21 November",
+        "November 21"
+      ]
+    },
+    "evict_c": {
+      "title": "Hiring update"
+    }
+  },
+  "edits": {
+    "modify_b": {
+      "subtree": "Decisions",
+      "nodes_before": 5,
+      "nodes_after": 5,
+      "subtree_changed": true,
+      "outside_unchanged": true
+    },
+    "control_a": {
+      "subtree": "Database migration",
+      "nodes_before": 7,
+      "nodes_after": 7,
+      "subtree_changed": true,
+      "outside_unchanged": true
+    },
+    "b_disjoint_from_a": true,
+    "c_disjoint_from_a": true
+  },
+  "grading": {
+    "baseline_structured_correct": true,
+    "baseline_flat_correct": true,
+    "flat_with_distractor_correct": true,
+    "test1_answer_correct": true,
+    "test2_answer_correct": true,
+    "control_a_answer_has_new_fact": true
+  },
+  "summary": {
+    "document_id": "04_meeting_notes",
+    "question": "On which date is the cut-over window for the database migration?",
+    "expected": [
+      "14 November",
+      "November 14"
+    ],
+    "target": "Platform Team Meeting — 9 October 2026 > Discussion > Database migration",
+    "modified": "Platform Team Meeting — 9 October 2026 > Decisions",
+    "evicted": "Platform Team Meeting — 9 October 2026 > Discussion > Hiring update",
+    "test1_pass": true,
+    "test2_pass": true,
+    "test2b_pass": true,
+    "control_a_pass": true,
+    "answers": {
+      "flat": "Saturday 14 November, 02:00 to 04:00 UTC.",
+      "flat_with_b_distractor": "Saturday 14 November, 02:00 to 04:00 UTC.",
+      "structured": "Saturday 14 November, 02:00 to 04:00 UTC.",
+      "structured_after_b_change": "Saturday 14 November, 02:00 to 04:00 UTC.",
+      "structured_after_a_change": "Saturday 21 November, 02:00 to 04:00 UTC.",
+      "structured_after_c_eviction": "Saturday 14 November, 02:00 to 04:00 UTC."
+    },
+    "kv_cells": {
+      "flat": 539,
+      "structured": 539,
+      "after_evict_c": 491,
+      "freed_by_evict_c": 48,
+      "expected_freed": 48,
+      "kv_bytes_freed": 1572864,
+      "keep_only_target_path": 275
+    }
+  },
+  "driver": {
+    "document_id": "04_meeting_notes",
+    "question": "On which date is the cut-over window for the database migration?",
+    "engine": {
+      "model": "/home/t/ldls/models/Llama-3.2-1B-Instruct-Q4_K_M.gguf",
+      "n_ctx": 8192,
+      "n_threads": 8,
+      "n_seq_max": 6,
+      "kv_unified": true,
+      "kv_bytes_per_cell": 32768,
+      "n_predict": 48
+    },
+    "nodes": {
+      "target": {
+        "id": "n21",
+        "path": "Platform Team Meeting — 9 October 2026 > Discussion > Database migration"
+      },
+      "modify": {
+        "id": "n30",
+        "path": "Platform Team Meeting — 9 October 2026 > Decisions"
+      },
+      "evict": {
+        "id": "n19",
+        "path": "Platform Team Meeting — 9 October 2026 > Discussion > Hiring update"
+      }
+    },
+    "doc": {
+      "n_seq": 6,
+      "n_doc_tokens": 504,
+      "n_prefix_tokens": 35,
+      "flat_tokens": 539,
+      "target_seq": 3,
+      "target_seq_tokens": 275
+    },
+    "flat": {
+      "cells": 539,
+      "original": {
+        "seq": 0,
+        "text": "Saturday 14 November, 02:00 to 04:00 UTC.",
+        "tokens": [
+          34774,
+          220,
+          975,
+          6841,
+          11,
+          220,
+          2437,
+          25,
+          410,
+          311,
+          220,
+          2371,
+          25,
+          410,
+          28503,
+          13
+        ],
+        "n_question": 24,
+        "t_question_ms": 333.09301199996844,
+        "t_generate_ms": 659.1798249999993,
+        "gen_tokens_per_s": 24.27258752951066
+      },
+      "modified_b": {
+        "seq": 0,
+        "text": "Saturday 14 November, 02:00 to 04:00 UTC.",
+        "tokens": [
+          34774,
+          220,
+          975,
+          6841,
+          11,
+          220,
+          2437,
+          25,
+          410,
+          311,
+          220,
+          2371,
+          25,
+          410,
+          28503,
+          13
+        ],
+        "n_question": 24,
+        "t_question_ms": 342.21960000001127,
+        "t_generate_ms": 656.9772989999619,
+        "gen_tokens_per_s": 24.353961734073444
+      },
+      "answer_changed_by_b": false
+    },
+    "structured": {
+      "cells": 539,
+      "cells_expected": 539,
+      "target_seq_cells": 275,
+      "answer": {
+        "seq": 3,
+        "text": "Saturday 14 November, 02:00 to 04:00 UTC.",
+        "tokens": [
+          34774,
+          220,
+          975,
+          6841,
+          11,
+          220,
+          2437,
+          25,
+          410,
+          311,
+          220,
+          2371,
+          25,
+          410,
+          28503,
+          13
+        ],
+        "n_question": 24,
+        "t_question_ms": 299.8709099999978,
+        "t_generate_ms": 617.3391190000111,
+        "gen_tokens_per_s": 25.91768366455927
+      }
+    },
+    "test1_modify_b": {
+      "patch": {
+        "changed_seqs": [
+          4
+        ],
+        "first_diff_pos": [
+          148
+        ],
+        "n_redecoded": 24,
+        "t_rm_ms": 0.03950000001350418,
+        "t_decode_ms": 268.1207080000313
+      },
+      "target_seq_untouched": true,
+      "answer": {
+        "seq": 3,
+        "text": "Saturday 14 November, 02:00 to 04:00 UTC.",
+        "tokens": [
+          34774,
+          220,
+          975,
+          6841,
+          11,
+          220,
+          2437,
+          25,
+          410,
+          311,
+          220,
+          2371,
+          25,
+          410,
+          28503,
+          13
+        ],
+        "n_question": 24,
+        "t_question_ms": 300.8639100000146,
+        "t_generate_ms": 623.0421199999982,
+        "gen_tokens_per_s": 25.68044677300476
+      },
+      "tokens_equal_to_baseline": true,
+      "max_abs_logit_diff": 0.0,
+      "fresh_prefill_answer": {
+        "seq": 3,
+        "text": "Saturday 14 November, 02:00 to 04:00 UTC.",
+        "tokens": [
+          34774,
+          220,
+          975,
+          6841,
+          11,
+          220,
+          2437,
+          25,
+          410,
+          311,
+          220,
+          2371,
+          25,
+          410,
+          28503,
+          13
+        ],
+        "n_question": 24,
+        "t_question_ms": 312.39991000003647,
+        "t_generate_ms": 645.889438000042,
+        "gen_tokens_per_s": 24.772041557984046
+      },
+      "patched_equals_fresh": true,
+      "patched_vs_fresh_logit_diff": 0.6330523490905762,
+      "cells_patched": 545,
+      "cells_fresh": 545,
+      "pass": true
+    },
+    "control_modify_a": {
+      "patch": {
+        "changed_seqs": [
+          3
+        ],
+        "first_diff_pos": [
+          221
+        ],
+        "n_redecoded": 54,
+        "t_rm_ms": 0.04060000000754371,
+        "t_decode_ms": 584.7982349999947
+      },
+      "target_seq_changed": true,
+      "answer": {
+        "seq": 3,
+        "text": "Saturday 21 November, 02:00 to 04:00 UTC.",
+        "tokens": [
+          34774,
+          220,
+          1691,
+          6841,
+          11,
+          220,
+          2437,
+          25,
+          410,
+          311,
+          220,
+          2371,
+          25,
+          410,
+          28503,
+          13
+        ],
+        "n_question": 24,
+        "t_question_ms": 285.9150169999921,
+        "t_generate_ms": 624.9548359999899,
+        "gen_tokens_per_s": 25.60185005112955
+      },
+      "answer_changed": true
+    },
+    "test2_evict": {
+      "ranges": [
+        {
+          "seq": 2,
+          "p0": 168,
+          "p1": 216
+        }
+      ],
+      "range_exact": true,
+      "target_seq_in_ranges": false,
+      "subtree_tokens": 48,
+      "cells_before": 539,
+      "cells_after": 491,
+      "cells_freed": 48,
+      "cells_expected_freed": 48,
+      "kv_bytes_freed": 1572864,
+      "state_bytes_before": 17671692,
+      "state_bytes_after": 16098252,
+      "t_evict_ms": 0.030499999993480742,
+      "answer": {
+        "seq": 3,
+        "text": "Saturday 14 November, 02:00 to 04:00 UTC.",
+        "tokens": [
+          34774,
+          220,
+          975,
+          6841,
+          11,
+          220,
+          2437,
+          25,
+          410,
+          311,
+          220,
+          2371,
+          25,
+          410,
+          28503,
+          13
+        ],
+        "n_question": 24,
+        "t_question_ms": 300.1418110000086,
+        "t_generate_ms": 629.6121240000357,
+        "gen_tokens_per_s": 25.412471250313935
+      },
+      "tokens_equal_to_baseline": true,
+      "max_abs_logit_diff": 0.581802487373352,
+      "pass": true
+    },
+    "test2b_keep_only_target_path": {
+      "cells_after": 275,
+      "cells_expected": 275,
+      "kv_bytes_kept": 9011200,
+      "fraction_of_flat_cache": 0.5102040816326531,
+      "t_ms": 0.19510000001173466,
+      "answer": {
+        "seq": 3,
+        "text": "Saturday 14 November, 02:00 to 04:00 UTC.",
+        "tokens": [
+          34774,
+          220,
+          975,
+          6841,
+          11,
+          220,
+          2437,
+          25,
+          410,
+          311,
+          220,
+          2371,
+          25,
+          410,
+          28503,
+          13
+        ],
+        "n_question": 24,
+        "t_question_ms": 289.215310999949,
+        "t_generate_ms": 689.369926000014,
+        "gen_tokens_per_s": 23.209599659848923
+      },
+      "tokens_equal_to_baseline": true,
+      "pass": true
+    },
+    "timings_ms": {
+      "model_load_ms": 1642.1295490000048,
+      "prefill_flat_ms_runs": [
+        4617.079568999994,
+        4692.461408000032,
+        4776.6227109999745
+      ],
+      "prefill_structured_ms_runs": [
+        4544.436924000038,
+        4608.829297000018,
+        4879.853158000042
+      ],
+      "prefill_flat_ms": 4639.062072000001,
+      "prefill_structured_ms": 4748.631024000002,
+      "ask_structured_ms": 917.210029000009,
+      "ask_flat_ms": 992.2728369999677,
+      "full_reprefill_b_ms": 4612.741547999962,
+      "patch_b_ms": 268.1602080000448,
+      "evict_ms": 0.030499999993480742
+    }
+  }
+}

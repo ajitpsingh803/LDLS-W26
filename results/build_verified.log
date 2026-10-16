@@ -1,0 +1,19 @@
+CMAKE_BUILD_TYPE=Release
+[ 12%] Built target ggml-base
+[ 35%] Built target ggml-cpu
+[ 39%] Built target ggml
+[ 94%] Built target llama
+[ 96%] Building CXX object CMakeFiles/ldls_driver.dir/driver/src/engine.cpp.o
+[ 97%] Building CXX object CMakeFiles/ldls_driver.dir/driver/src/main.cpp.o
+[ 98%] Building CXX object CMakeFiles/ldls_driver.dir/driver/src/structured_doc.cpp.o
+[100%] Linking CXX executable bin/ldls_driver
+[100%] Built target ldls_driver
+[ 12%] Built target ggml-base
+[ 36%] Built target ggml-cpu
+[ 40%] Built target ggml
+[ 97%] Built target llama
+[ 98%] Building CXX object CMakeFiles/ldls_tokenize.dir/driver/src/ldls_tokenize.cpp.o
+[100%] Linking CXX executable bin/ldls_tokenize
+[100%] Built target ldls_tokenize
+-rwxr-xr-x 1 t t 431768 Oct 16 16:31 /home/t/ldls/build/bin/ldls_driver
+-rwxr-xr-x 1 t t 184032 Oct 16 16:31 /home/t/ldls/build/bin/ldls_tokenize

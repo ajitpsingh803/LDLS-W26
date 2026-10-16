@@ -1,0 +1,18 @@
+{
+  "document": "data/markdown/04_meeting_notes.md",
+  "domain": "markdown",
+  "question": "On which date is the cut-over window for the database migration?",
+  "target": {"title": "Database migration"},
+  "expected": ["14 November", "November 14"],
+  "modify_b": {
+    "title": "Decisions",
+    "find": "- Approve the PostgreSQL 16 migration with the November cut-over window.",
+    "replace": "- Approve the PostgreSQL 16 migration, but move the cut-over window to Sunday 6 December."
+  },
+  "control_a": {
+    "find": "Saturday 14 November",
+    "replace": "Saturday 21 November",
+    "expected": ["21 November", "November 21"]
+  },
+  "evict_c": {"title": "Hiring update"}
+}

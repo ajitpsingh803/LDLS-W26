@@ -1,0 +1,7 @@
+0.00.924.001 W llama_context: n_ctx is not divisible by n_seq_max - rounding down to 512
+0.00.941.062 I 
+main: n_predict = 32, n_ctx = 512, n_batch = 32, n_parallel = 2, n_kv_req = 58
+
+<|begin_of_text|>The capital of France is0.00.941.171 E split_equal: sequential split is not supported when there are coupled sequences in the input batch (you may need to use the -kvu flag)
+0.00.941.174 W decode: failed to find a memory slot for batch of size 6
+0.00.941.175 E main: llama_decode() failed

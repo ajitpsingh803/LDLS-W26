@@ -1,0 +1,447 @@
+{
+  "spec": {
+    "document": "data/markdown/02_software_readme.md",
+    "domain": "markdown",
+    "question": "What is the current stable release version of quillsync?",
+    "target": {
+      "title": "From a release"
+    },
+    "expected": [
+      "2.4.1"
+    ],
+    "modify_b": {
+      "title": "Troubleshooting",
+      "find": "- **Sync never starts**",
+      "replace": "- **Outdated version**: the current stable release is now version 3.0.0.\n- **Sync never starts**"
+    },
+    "control_a": {
+      "find": "**version 2.4.1**",
+      "replace": "**version 2.6.0**",
+      "expected": [
+        "2.6.0"
+      ]
+    },
+    "evict_c": {
+      "title": "Configuration"
+    }
+  },
+  "edits": {
+    "modify_b": {
+      "subtree": "Troubleshooting",
+      "nodes_before": 5,
+      "nodes_after": 6,
+      "subtree_changed": true,
+      "outside_unchanged": true
+    },
+    "control_a": {
+      "subtree": "From a release",
+      "nodes_before": 4,
+      "nodes_after": 4,
+      "subtree_changed": true,
+      "outside_unchanged": true
+    },
+    "b_disjoint_from_a": true,
+    "c_disjoint_from_a": true
+  },
+  "grading": {
+    "baseline_structured_correct": true,
+    "baseline_flat_correct": true,
+    "flat_with_distractor_correct": true,
+    "test1_answer_correct": true,
+    "test2_answer_correct": true,
+    "control_a_answer_has_new_fact": true
+  },
+  "summary": {
+    "document_id": "02_software_readme",
+    "question": "What is the current stable release version of quillsync?",
+    "expected": [
+      "2.4.1"
+    ],
+    "target": "quillsync > Installation > From a release",
+    "modified": "quillsync > Troubleshooting",
+    "evicted": "quillsync > Configuration",
+    "test1_pass": true,
+    "test2_pass": true,
+    "test2b_pass": true,
+    "control_a_pass": true,
+    "answers": {
+      "flat": "The current stable release version of quillsync is 2.4.1, published on 3 March 2026.",
+      "flat_with_b_distractor": "The current stable release is version 2.4.1, published on 3 March 2026.",
+      "structured": "The current stable release version of quillsync is 2.4.1.",
+      "structured_after_b_change": "The current stable release version of quillsync is 2.4.1.",
+      "structured_after_a_change": "The current stable release version of quillsync is 2.6.0.",
+      "structured_after_c_eviction": "The current stable release version of quillsync is 2.4.1."
+    },
+    "kv_cells": {
+      "flat": 582,
+      "structured": 582,
+      "after_evict_c": 453,
+      "freed_by_evict_c": 129,
+      "expected_freed": 129,
+      "kv_bytes_freed": 4227072,
+      "keep_only_target_path": 178
+    }
+  },
+  "driver": {
+    "document_id": "02_software_readme",
+    "question": "What is the current stable release version of quillsync?",
+    "engine": {
+      "model": "/home/t/ldls/models/Llama-3.2-1B-Instruct-Q4_K_M.gguf",
+      "n_ctx": 8192,
+      "n_threads": 8,
+      "n_seq_max": 6,
+      "kv_unified": true,
+      "kv_bytes_per_cell": 32768,
+      "n_predict": 48
+    },
+    "nodes": {
+      "target": {
+        "id": "n4",
+        "path": "quillsync > Installation > From a release"
+      },
+      "modify": {
+        "id": "n27",
+        "path": "quillsync > Troubleshooting"
+      },
+      "evict": {
+        "id": "n11",
+        "path": "quillsync > Configuration"
+      }
+    },
+    "doc": {
+      "n_seq": 6,
+      "n_doc_tokens": 547,
+      "n_prefix_tokens": 35,
+      "flat_tokens": 582,
+      "target_seq": 0,
+      "target_seq_tokens": 178
+    },
+    "flat": {
+      "cells": 582,
+      "original": {
+        "seq": 0,
+        "text": "The current stable release version of quillsync is 2.4.1, published on 3 March 2026.",
+        "tokens": [
+          791,
+          1510,
+          15528,
+          4984,
+          2373,
+          315,
+          934,
+          3385,
+          1756,
+          374,
+          220,
+          17,
+          13,
+          19,
+          13,
+          16,
+          11,
+          4756,
+          389,
+          220,
+          18,
+          5587,
+          220,
+          2366,
+          21,
+          13
+        ],
+        "n_question": 23,
+        "t_question_ms": 342.77228400000604,
+        "t_generate_ms": 1070.4665499999828,
+        "gen_tokens_per_s": 24.28847496449134
+      },
+      "modified_b": {
+        "seq": 0,
+        "text": "The current stable release is version 2.4.1, published on 3 March 2026.",
+        "tokens": [
+          791,
+          1510,
+          15528,
+          4984,
+          374,
+          2373,
+          220,
+          17,
+          13,
+          19,
+          13,
+          16,
+          11,
+          4756,
+          389,
+          220,
+          18,
+          5587,
+          220,
+          2366,
+          21,
+          13
+        ],
+        "n_question": 23,
+        "t_question_ms": 336.03509999997914,
+        "t_generate_ms": 898.9410989999888,
+        "gen_tokens_per_s": 24.473238596470352
+      },
+      "answer_changed_by_b": true
+    },
+    "structured": {
+      "cells": 582,
+      "cells_expected": 582,
+      "target_seq_cells": 178,
+      "answer": {
+        "seq": 0,
+        "text": "The current stable release version of quillsync is 2.4.1.",
+        "tokens": [
+          791,
+          1510,
+          15528,
+          4984,
+          2373,
+          315,
+          934,
+          3385,
+          1756,
+          374,
+          220,
+          17,
+          13,
+          19,
+          13,
+          16,
+          13
+        ],
+        "n_question": 23,
+        "t_question_ms": 283.45819999999367,
+        "t_generate_ms": 655.4877979999874,
+        "gen_tokens_per_s": 25.934883993066073
+      }
+    },
+    "test1_modify_b": {
+      "patch": {
+        "changed_seqs": [
+          4
+        ],
+        "first_diff_pos": [
+          110
+        ],
+        "n_redecoded": 72,
+        "t_rm_ms": 0.035500000027241185,
+        "t_decode_ms": 742.94889900001
+      },
+      "target_seq_untouched": true,
+      "answer": {
+        "seq": 0,
+        "text": "The current stable release version of quillsync is 2.4.1.",
+        "tokens": [
+          791,
+          1510,
+          15528,
+          4984,
+          2373,
+          315,
+          934,
+          3385,
+          1756,
+          374,
+          220,
+          17,
+          13,
+          19,
+          13,
+          16,
+          13
+        ],
+        "n_question": 23,
+        "t_question_ms": 278.67949899999076,
+        "t_generate_ms": 649.7447990000073,
+        "gen_tokens_per_s": 26.16411862959723
+      },
+      "tokens_equal_to_baseline": true,
+      "max_abs_logit_diff": 0.0,
+      "fresh_prefill_answer": {
+        "seq": 0,
+        "text": "The current stable release version of quillsync is 2.4.1.",
+        "tokens": [
+          791,
+          1510,
+          15528,
+          4984,
+          2373,
+          315,
+          934,
+          3385,
+          1756,
+          374,
+          220,
+          17,
+          13,
+          19,
+          13,
+          16,
+          13
+        ],
+        "n_question": 23,
+        "t_question_ms": 264.4235869999975,
+        "t_generate_ms": 644.4713660000125,
+        "gen_tokens_per_s": 26.378208399719142
+      },
+      "patched_equals_fresh": true,
+      "patched_vs_fresh_logit_diff": 0.674403190612793,
+      "cells_patched": 602,
+      "cells_fresh": 602,
+      "pass": true
+    },
+    "control_modify_a": {
+      "patch": {
+        "changed_seqs": [
+          0
+        ],
+        "first_diff_pos": [
+          165
+        ],
+        "n_redecoded": 13,
+        "t_rm_ms": 0.04290000000037253,
+        "t_decode_ms": 173.7263910000038
+      },
+      "target_seq_changed": true,
+      "answer": {
+        "seq": 0,
+        "text": "The current stable release version of quillsync is 2.6.0.",
+        "tokens": [
+          791,
+          1510,
+          15528,
+          4984,
+          2373,
+          315,
+          934,
+          3385,
+          1756,
+          374,
+          220,
+          17,
+          13,
+          21,
+          13,
+          15,
+          13
+        ],
+        "n_question": 23,
+        "t_question_ms": 278.85678500001086,
+        "t_generate_ms": 642.0849949999829,
+        "gen_tokens_per_s": 26.476245563097848
+      },
+      "answer_changed": true
+    },
+    "test2_evict": {
+      "ranges": [
+        {
+          "seq": 2,
+          "p0": 76,
+          "p1": 205
+        }
+      ],
+      "range_exact": true,
+      "target_seq_in_ranges": false,
+      "subtree_tokens": 129,
+      "cells_before": 582,
+      "cells_after": 453,
+      "cells_freed": 129,
+      "cells_expected_freed": 129,
+      "kv_bytes_freed": 4227072,
+      "state_bytes_before": 19079908,
+      "state_bytes_after": 14851288,
+      "t_evict_ms": 0.05840000000898726,
+      "answer": {
+        "seq": 0,
+        "text": "The current stable release version of quillsync is 2.4.1.",
+        "tokens": [
+          791,
+          1510,
+          15528,
+          4984,
+          2373,
+          315,
+          934,
+          3385,
+          1756,
+          374,
+          220,
+          17,
+          13,
+          19,
+          13,
+          16,
+          13
+        ],
+        "n_question": 23,
+        "t_question_ms": 275.668599000026,
+        "t_generate_ms": 651.7170960000076,
+        "gen_tokens_per_s": 26.084937934480397
+      },
+      "tokens_equal_to_baseline": true,
+      "max_abs_logit_diff": 0.4884979724884033,
+      "pass": true
+    },
+    "test2b_keep_only_target_path": {
+      "cells_after": 178,
+      "cells_expected": 178,
+      "kv_bytes_kept": 5832704,
+      "fraction_of_flat_cache": 0.30584192439862545,
+      "t_ms": 0.23740000001271255,
+      "answer": {
+        "seq": 0,
+        "text": "The current stable release version of quillsync is 2.4.1.",
+        "tokens": [
+          791,
+          1510,
+          15528,
+          4984,
+          2373,
+          315,
+          934,
+          3385,
+          1756,
+          374,
+          220,
+          17,
+          13,
+          19,
+          13,
+          16,
+          13
+        ],
+        "n_question": 23,
+        "t_question_ms": 273.637298000016,
+        "t_generate_ms": 641.6676969999971,
+        "gen_tokens_per_s": 26.493463952573066
+      },
+      "tokens_equal_to_baseline": true,
+      "pass": true
+    },
+    "timings_ms": {
+      "model_load_ms": 1550.7573050000065,
+      "prefill_flat_ms_runs": [
+        4919.088113999984,
+        4876.408475000004,
+        5053.559700999991
+      ],
+      "prefill_structured_ms_runs": [
+        4914.416422000009,
+        4985.37707799999,
+        4952.336555999995
+      ],
+      "prefill_flat_ms": 4950.826368000009,
+      "prefill_structured_ms": 4928.125192999985,
+      "ask_structured_ms": 938.945997999981,
+      "ask_flat_ms": 1413.2388339999889,
+      "full_reprefill_b_ms": 4999.351505999977,
+      "patch_b_ms": 742.9843990000372,
+      "evict_ms": 0.05840000000898726
+    }
+  }
+}

@@ -1,0 +1,5 @@
+build/docs/01_research_paper.json: 38 nodes, 790 tokens, depth 5, 15 units, 10 sequences, markup 6.1%
+build/docs/02_software_readme.json: 36 nodes, 547 tokens, depth 4, 10 units, 6 sequences, markup 16.6%
+build/docs/03_lab_protocol.json: 41 nodes, 565 tokens, depth 5, 10 units, 7 sequences, markup 12.6%
+build/docs/04_meeting_notes.json: 43 nodes, 504 tokens, depth 5, 9 units, 6 sequences, markup 9.5%
+build/docs/05_city_guide.json: 31 nodes, 464 tokens, depth 4, 10 units, 6 sequences, markup 9.5%

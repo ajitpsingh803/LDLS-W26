@@ -1,0 +1,10 @@
+01_research_paper      test1_pass=PASS test2_pass=PASS test2b_pass=PASS control_a_pass=PASS
+    structured: '1,240'   flat+distractor: '3,500 documents.'
+02_software_readme     test1_pass=PASS test2_pass=PASS test2b_pass=PASS control_a_pass=PASS
+    structured: 'The current stable release version of quillsync is 2.4.1.'   flat+distractor: 'The current stable release is version 2.4.1, published on 3 March 2026.'
+03_lab_protocol        test1_pass=PASS test2_pass=PASS test2b_pass=PASS control_a_pass=PASS
+    structured: '45 seconds.'   flat+distractor: 'The heat shock lasts for exactly **45 seconds**.'
+04_meeting_notes       test1_pass=PASS test2_pass=PASS test2b_pass=PASS control_a_pass=PASS
+    structured: 'Saturday 14 November, 02:00 to 04:00 UTC.'   flat+distractor: 'Saturday 14 November, 02:00 to 04:00 UTC.'
+05_city_guide          test1_pass=PASS test2_pass=PASS test2b_pass=FAIL control_a_pass=PASS
+    structured: '$12'   flat+distractor: 'The ticket to the Maritime Museum costs 20 euros.'

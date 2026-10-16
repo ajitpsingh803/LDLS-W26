@@ -1,0 +1,7 @@
+2026-10-16T16:39:34+00:00
+Linux OLDMAN 6.18.54.1-microsoft-standard-WSL2 #1 SMP PREEMPT_DYNAMIC Tue Oct  6 19:13:07 UTC 2026 x86_64 GNU/Linux
+cmake version 4.2.3
+g++ (Ubuntu 15.2.0-16ubuntu1) 15.2.0
+Python 3.14.4
+318a471a6295e53bfce7ca96ae0cf26071cbdd6e
+6f85a640a97cf2bf5b8e764087b1e83da0fdb51d7c9fab7d0fece9385611df83  models/Llama-3.2-1B-Instruct-Q4_K_M.gguf

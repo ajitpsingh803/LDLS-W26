@@ -1,0 +1,119 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ldls.course/structured_doc.schema.json",
+  "title": "Structured document for tree-masked prefill (schema version 1.0)",
+  "description": "A document tree whose tokens carry llama.cpp positions and sequence ids. Field types only; the invariants between fields (contiguous positions per sequence, shared prefixes, merge rules) are checked by ldls/validate.py and described in schema/SCHEMA.md.",
+  "type": "object",
+  "required": ["schema_version", "document_id", "domain", "prompt", "layout", "nodes"],
+  "properties": {
+    "schema_version": {"const": "1.0"},
+    "document_id": {"type": "string"},
+    "domain": {"type": "string", "description": "markdown | html | latex | code | json | ..."},
+    "source": {
+      "type": "object",
+      "properties": {
+        "path": {"type": "string"},
+        "sha256": {"type": "string", "description": "sha256 of the UTF-8 source; equals sha256 of the concatenated node texts"},
+        "n_bytes": {"type": "integer"}
+      }
+    },
+    "tokenizer": {
+      "type": "object",
+      "properties": {
+        "model": {"type": "string"},
+        "vocab_size": {"type": "integer"},
+        "bos": {"type": "integer"},
+        "eos": {"type": "integer"},
+        "eot": {"type": "integer"}
+      }
+    },
+    "prompt": {
+      "type": "object",
+      "required": ["prefix", "question_template"],
+      "properties": {
+        "prefix": {
+          "type": "object",
+          "description": "Chat-template header. Positions 0..P-1, member of every sequence.",
+          "required": ["tokens", "positions", "seq_ids"],
+          "properties": {
+            "text": {"type": "string"},
+            "tokens": {"$ref": "#/$defs/intArray"},
+            "positions": {"$ref": "#/$defs/intArray"},
+            "seq_ids": {"$ref": "#/$defs/intArray"}
+          }
+        },
+        "question_template": {
+          "type": "string",
+          "pattern": "\\{question\\}",
+          "description": "Appended to ONE sequence when asking; tokenized with special tokens enabled."
+        }
+      }
+    },
+    "layout": {
+      "type": "object",
+      "required": ["n_seq", "merge_rules", "units"],
+      "properties": {
+        "n_seq": {"type": "integer", "minimum": 1, "maximum": 256},
+        "merge_rules": {
+          "type": "object",
+          "required": ["split_node_types", "min_unit_tokens", "effective_min_unit_tokens", "max_sequences"],
+          "properties": {
+            "split_node_types": {"type": "array", "items": {"type": "string"}},
+            "min_unit_tokens": {"type": "integer", "minimum": 0},
+            "effective_min_unit_tokens": {"type": "integer", "minimum": 0},
+            "max_sequences": {"type": "integer", "minimum": 1, "maximum": 256},
+            "small_splittable_siblings": {"type": "string"},
+            "non_splittable": {"type": "string"}
+          }
+        },
+        "units": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["id", "kind", "parent_unit", "root_nodes", "nodes", "seq_ids", "pos_start", "pos_end", "n_tokens"],
+            "properties": {
+              "id": {"type": "string"},
+              "kind": {"enum": ["root", "subtree", "merged_group"]},
+              "parent_unit": {"type": ["string", "null"]},
+              "root_nodes": {"type": "array", "items": {"type": "string"}},
+              "nodes": {"type": "array", "items": {"type": "string"}},
+              "seq_ids": {"$ref": "#/$defs/intArray"},
+              "pos_start": {"type": "integer", "minimum": 0},
+              "pos_end": {"type": "integer", "minimum": 0},
+              "n_tokens": {"type": "integer", "minimum": 0},
+              "reordered": {"type": "boolean"}
+            }
+          }
+        }
+      }
+    },
+    "nodes": {
+      "type": "array",
+      "description": "Document (depth-first) order.",
+      "items": {
+        "type": "object",
+        "required": ["id", "node_type", "parent", "children", "tokens", "positions", "seq_ids", "text", "unit", "depth", "token_class"],
+        "properties": {
+          "id": {"type": "string"},
+          "node_type": {"type": "string", "description": "domain specific: heading, paragraph, list_item, code_block, table_row, function, ..."},
+          "parent": {"type": ["string", "null"]},
+          "children": {"type": "array", "items": {"type": "string"}},
+          "depth": {"type": "integer", "minimum": 0},
+          "title": {"type": "string"},
+          "path": {"type": "string"},
+          "attrs": {"type": "object"},
+          "unit": {"type": "string"},
+          "text": {"type": "string", "description": "the node's OWN source text (children excluded)"},
+          "tokens": {"$ref": "#/$defs/intArray"},
+          "positions": {"$ref": "#/$defs/intArray", "description": "one per token, contiguous"},
+          "seq_ids": {"$ref": "#/$defs/intArray", "description": "sorted; shared by every token of the node; empty if the node has no tokens"},
+          "token_class": {"type": "string", "pattern": "^[MCW]*$", "description": "per token: M markup/syntax, C content, W whitespace"}
+        }
+      }
+    },
+    "stats": {"type": "object"}
+  },
+  "$defs": {
+    "intArray": {"type": "array", "items": {"type": "integer", "minimum": 0}}
+  }
+}
